@@ -1,0 +1,65 @@
+doctype 5
+html(lang='en')
+
+  head
+    block title
+      title Pramata | Image Upload Web Application
+    script(src="/static/js/jquery-1.10.2.js")
+    script(src="/static/bootstrap/js/bootstrap.js")
+    script(src="//rawgit.com/enyo/dropzone/master/dist/dropzone.js")
+    script(src="/static/js/base.js")
+    block meta 
+      meta(charset='UTF-8')
+    block css
+      link(href='http://fonts.googleapis.com/css?family=Roboto', rel='stylesheet', type='text/css')
+      link(rel='stylesheet', href='/static/bootstrap/css/bootstrap.css')
+      link(rel='stylesheet', href='//rawgit.com/enyo/dropzone/master/dist/dropzone.css')
+      link(rel='stylesheet', href='/static/css/base.css')
+
+  body
+    header#top.navbar.navbar-fixed-top.bs-docs-nav(role='banner', style="box-shadow: 0px 0px 10px 3px #BBBBBB; background: #fff;")
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+          a.navbar-brand(href='/') Pramata Image Upload App
+        form.navbar-form.navbar-left(role="search")
+          .input-group
+            input.form-control.search_str(type="text", placeholder="Search Images")
+            span.input-group-btn
+              button.btn.btn-warning.search_image_btn(type="button")
+                span.glyphicon.glyphicon-search
+        .nav-collapse.collapse.pull-right(style="margin-right: 40px;")
+            ul.nav.pull-right
+              li.dropdown
+                a.dropdown-toggle(href="#",data-toggle="dropdown",style="color:#000",
+                 title="{{ request.user.first_name }}", style="padding-top: 9px;padding-left: 15px;")
+                  .profile_pic
+                    img(src="{{ request.user.userprofile.profile_image }}")
+                  {{ user }}
+                ul.dropdown-menu
+                  li: a(href="/auth/logout") Logout
+    .container-fluid(style="padding-top: 70px;")
+      block body
+    .custom_alert.alert.alert-success
+    
+    #common_modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="modal_label", aria-hidden="true")
+     .modal-dialog
+      .modal-content(style="border-radius:2px;")
+        .modal-header.text-center(style="border-bottom:0;")
+          h3
+        .modal-body(style="padding: 0px 25px 0px 25px;")
+        .modal-footer(style="text-align:center;")
+          button.btn.btn-warning.communication_send Send
+          button.btn.btn-danger(data-dismiss="modal") Close
+    
+    block js
+      script.
+        $(document).ready(function() {
+          $.ajaxSetup({ cache: true });
+          $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+            FB.init({
+              appId: '907433169279268',
+            });
+            $('#loginbutton,#feedbutton').removeAttr('disabled');
+          });
+        });

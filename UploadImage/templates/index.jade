@@ -1,0 +1,21 @@
+extends "base.jade"
+
+block append js
+  script(src="/static/js/upload_image.js")
+
+block append body
+  .col-md-12.main_area
+    .col-md-5.upload_area
+      h4 Upload Image Here: 
+      form#my-awesome-dropzone.dropzone(action="upload", method="post", enctype="multipart/form-data", style="margin-bottom: 10px;")
+        .form-group
+          label Image Title: 
+          input.form-control(type="text", name="title", placeholder='Enter title for image', required)
+      .col-md-12.text-left
+        .row
+          button#submit-all.btn.btn-primary.btn-lg Upload
+    .col-md-7.image_list_area(style="height: 100%;")
+      .row(style="height: 100%;")
+        .col-md-12.thumbnail.image_data_area(style="height: 100%;padding: 10px;")
+          .no_data
+            span No Image uploaded yet !

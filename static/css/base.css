@@ -1,0 +1,22 @@
+/* Bootstrap css overidden */
+.navbar{ height: 50px; }
+.dropdown-menu > li > a {padding: 9px 20px !important;}
+
+.custom_alert.show{opacity: 1;}
+.custom_alert{position: fixed;bottom: 10px;right: 10px;width: 220px;height: 110px;margin: 0px; 
+  opacity: 0; transition: all ease 0.3s; -webkit-transition: all ease 0.3s; background: #FDDF90; color: #000; }
+
+.dz-default,.dz-message{ padding: 30px 0px; border: 1px dashed blue;}
+.dropzone{border: 2px solid rgba(0, 112, 255, 0.41) !important;}
+.no_data{text-align: center;font-size: 25px;color: #d0d0d0; margin-top: 30px;}
+.image_master{height: 180px; position: relative; overflow: hidden; margin-bottom: 15px;}
+.image_area{height: 100%;background-size: cover !important;background-position: 50% !important;
+  position: relative;box-shadow: 0px 0px 6px #999;}
+.image_text{width: 100%; position: absolute; bottom: 0px; color: #fff;padding: 5px 5px 5px; font-size: 13px;
+  background: rgba(0, 0, 0, 0.5);overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.action_btns{ position: relative; top: -40px; transition: all ease 0.3s; -webkit-transition: all ease 0.3s;}
+.action_btns span.liked{background: rgb(214, 46, 46) !important;}
+.action_btns span {padding: 8px;margin-right: 8px;background: rgba(0, 0, 0, 0.46);margin-top: 5px;
+  cursor:pointer; color: #fff; border-radius: 50%;}
+.image_area:hover .action_btns{top: 0px;}
+.action_btns span:hover{background: rgb(0, 148, 218)}

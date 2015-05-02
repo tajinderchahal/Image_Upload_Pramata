@@ -27,7 +27,6 @@ def SaveImage(request):
             destination.close()
             new_img = UploadImageClass(**{
               'title': request.POST['title'],
-              'caption': request.POST['caption']
             })
             new_img.image_file.save(up_file.name, File(open('/tmp/' + up_file.name, 'r')))
             new_img.save()
